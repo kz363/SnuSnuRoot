@@ -18,7 +18,7 @@ from the **code that writes the variable**.
 > happens to align across PS7326 → PS7329 → PS7331 for `selinux_enforcing`, but
 > **`.bss` variable layout is not a linear function of build number**: adding new
 > kernel config options, rearranging linker sections, or changing struct layout
-> upstream of a `.bss` global shifts it arbitrarily. The estimate we tried by
+> upstream of a `.bss` global shifts it arbitrarily. An estimate derived by
 > section-delta arithmetic was off by `0x5cce8`. For any new build, recover
 > the address by disassembly of `enforcing_setup` (pipeline below) — never
 > extrapolate.
