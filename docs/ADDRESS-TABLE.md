@@ -1,3 +1,14 @@
+SPDX-License-Identifier: MIT
+Copyright (C) 2026 SnuSnuRoot contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this documentation (the "Docs"), to deal in the Docs without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Docs, subject to the
+following conditions: the above copyright notice and this permission notice
+shall be included in all copies or substantial portions of the Docs.
+THE DOCS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
 # `selinux_enforcing` address table + recovery pipeline
 
 The SnuSnuRoot P2b write step needs the virtual address of the `selinux_enforcing`
@@ -95,7 +106,7 @@ objdump -d --start-address=0xffffff80091b9e78 --stop-address=0xffffff80091ba020 
 > ```bash
 > shred -u ota.bin boot.img vmlinux vmlinux.elf
 > ```
-> (See [VERIFICATION-PS7329.md](VERIFICATION-PS7329.md) for the broader hygiene
+> (See [PS7329-3842N-verification.md](PS7329-3842N-verification.md) for the broader hygiene
 > guidance.)
 
 ## Cross-validation (do not skip)

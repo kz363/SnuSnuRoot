@@ -1,3 +1,14 @@
+SPDX-License-Identifier: MIT
+Copyright (C) 2026 SnuSnuRoot contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this documentation (the "Docs"), to deal in the Docs without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Docs, subject to the
+following conditions: the above copyright notice and this permission notice
+shall be included in all copies or substantial portions of the Docs.
+THE DOCS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+
 # Verification report — Fire HD 10 (2021) KFTRWI, Fire OS 7.3.2.9 (PS7329.3842N)
 
 Verification date: 2026-10-12. Single device, operator-owned, serial withheld.

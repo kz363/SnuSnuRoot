@@ -1,3 +1,9 @@
+Source: objdump disassembly of the Linux kernel (GPL-2.0) as distributed
+in Amazon's official PS7329.3842N OTA (trona/KFTRWI). Provided for
+interoperability and security research. This excerpt is licensed
+GPL-2.0-or-later (compatible with this repo's GPL-3.0); Linux kernel
+source: kernel.org.
+
 
 /tmp/vmlinux_7329.elf:     file format elf64-littleaarch64
 
