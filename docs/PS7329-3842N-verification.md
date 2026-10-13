@@ -35,7 +35,7 @@ Mali UAPI = 11.11 (G72, r14p0)
 
 `PS7329.3842N` is the firmware present on the test device. Per fireos-archive
 (data/Fire_HD_10_Gen_11/), the model has newer builds: a later 7.3.2.9 incremental
-(3851) and 7.3.3.1 (4463 — the build verified separately in this repository's
+(3851) and 7.3.3.1 (4460N — the build verified separately in this repository's
 root.md). This report covers only 3842N; do not assume address portability to
 other builds, including other 7.3.2.x incrementals.
 
@@ -143,7 +143,7 @@ just `rm` — the data persists on the block device until overwritten.
 
 1. Firmware must be `PS7329.3842N` (Settings → About). Different builds → recover the
    address first (ADDRESS-TABLE.md).
-2. Rebuild the JNI lib with `0xffffff800996d668` (README §3) and verify the
+2. Rebuild the JNI lib with `0xffffff800996d668` (the companion repository README, §Stage the exploit assets) and verify the
    on-device sha256.
 3. Use the base64-literal arming method and the immediate-reboot-on-arm (the two bugs
    that look like "the exploit doesn't work" but are arming mistakes).
