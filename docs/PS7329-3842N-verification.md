@@ -22,8 +22,11 @@ ro.treble.enabled = true              (irrelevant without unlock)
 Mali UAPI = 11.11 (G72, r14p0)
 ```
 
-`PS7329.3842N` is the final firmware Amazon shipped for this model (no newer OTA
-exists; the 2024-01 build postdates the 2023-08 patch level).
+`PS7329.3842N` is the firmware present on the test device. Per fireos-archive
+(data/Fire_HD_10_Gen_11/), the model has newer builds: a later 7.3.2.9 incremental
+(3851) and 7.3.3.1 (4463 — the build verified separately in this repository's
+root.md). This report covers only 3842N; do not assume address portability to
+other builds, including other 7.3.2.x incrementals.
 
 ## Chain verification, per link
 
@@ -134,6 +137,8 @@ just `rm` — the data persists on the block device until overwritten.
 3. Use the base64-literal arming method and the immediate-reboot-on-arm (the two bugs
    that look like "the exploit doesn't work" but are arming mistakes).
 4. Expect the leak race to need 1-5 fresh boots.
-5. Stop immediately on any kernel panic. No unbrick path is known for this
-device: the bootROM download mode is fuse-disabled and no signed unlock or
-recovery image is publicly available.
+5. Stop immediately on any kernel panic. No publicly documented unbrick path is
+known for this device as of 2026-10-13: the bootROM download mode is
+community-reported as fuse-disabled on 2020+ hardware (zenfyrdev
+bootloader-unlock-wall-of-shame, brands/amazon) and no signed recovery image
+is publicly available; neither claim is independently verified by this report.
