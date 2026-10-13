@@ -53,7 +53,7 @@ other builds, including other 7.3.2.x incrementals.
 - Failure modes: `0x5000003d…` (ENODATA — grooming race lost, ~50-70% of boots) and
   `0x40000072…` (EALREADY — primitive spent for this boot).
 - Observed: 3 wins out of ~10 fresh boots across verification (after the address fix:
-  2-for-2 on first attempts).
+  one full chain transcript plus one corroborated flip; see counters below).
 
 ### P2b — write to `selinux_enforcing`
 - Upstream binaries hardcode the PS7331 address `0xffffff8009971668`. On PS7329 that
@@ -66,7 +66,7 @@ other builds, including other 7.3.2.x incrementals.
   yields `0xffffff8009969668`, whose PA under `(VA & 0xffffffff) + 0x38000000` is
   `0x41969668` — exactly the runtime-verified PA published by
   ericpardee/fire-hd-ownership (content reads `1` while Enforcing on that build).
-- With the corrected address: **2-for-2 boots achieved Enforcing → Permissive**
+- With the corrected address: **two boots achieved Enforcing → Permissive**
   (`HWBINDER_STATEFUL_WRITE result=0x5100000000000000` → `getenforce=Permissive`).
   This is the read-back oracle: a wrong address cannot produce a system-wide flip.
 
@@ -90,6 +90,15 @@ other builds, including other 7.3.2.x incrementals.
 3. The upstream payload `mkdir`s under `/data/local/tmp` (shell-owned); a root
    waiter that runs in a different context can fail there. Fix: payload uses
    `/data/securedStorageLocation/rootsvc`.
+
+## Verification counters
+
+- Leak attempts: ~10 fresh boots.
+- Leak wins: 3 (grooming race, ~30% per boot).
+- Full-chain wins on the corrected address: 1 complete transcript
+  (22:16 run, `verification-run.log`) + 1 corroborated getenforce flip
+  (19:48, `getenforce-transitions.txt`; no chain log retained from that
+  earlier campaign session).
 
 ## Post-root results
 

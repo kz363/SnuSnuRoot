@@ -23,7 +23,7 @@ from the **code that writes the variable**.
 |---|---|---|---|---|
 | 7.3.2.6 | PS7326.3178N | `0xffffff8009969668` | disassembly of `enforcing_setup`; PA `0x41969668` independently runtime-verified (reads `1` while Enforcing) by ericpardee/fire-hd-ownership | ✅ PA-level |
 | **7.3.2.9** | **PS7329.3842N** | **`0xffffff800996d668`** | disassembly of `enforcing_setup` (this repo); validated by the runtime oracle (write → `getenforce=Permissive`, 2-for-2 boots) | ✅ full chain |
-| 7.3.3.1 | PS7331.4460N | `0xffffff8009971668` | hardcoded in upstream SnuSnuRoot binaries — author-verified upstream (method not documented in their repo) | ✅ upstream |
+| 7.3.3.1 | PS7331.4460N (upstream root.md; fireos-archive lists incremental 4463) | `0xffffff8009971668` | hardcoded in upstream SnuSnuRoot binaries — author-verified upstream (method not documented in their repo) | ✅ upstream |
 
 Per-build evidence subdirectories under `docs/<BuildID>-evidence/` are the
 scaling pattern for this table: the table stays a summary index; full
