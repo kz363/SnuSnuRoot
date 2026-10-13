@@ -39,6 +39,26 @@ Mali UAPI = 11.11 (G72, r14p0)
 root.md). This report covers only 3842N; do not assume address portability to
 other builds, including other 7.3.2.x incrementals.
 
+
+## Why docs + evidence only (no code changes in this PR)
+
+This PR does not modify the toolchain binaries. Applying the PS7329 target
+requires rebuilding the JNI carrier:
+
+- Edit the `#define` at
+  `poc/hwbinder-secctx-exploit/controlled_target.c:1342`
+  (`SELINUX_ENFORCING_ADDRESS`: upstream default is the PS7331 value
+  `0xffffff8009971668`; for PS7329.3842N use `0xffffff800996d668`).
+- Full patch + build + sha256-verify procedure:
+  https://github.com/kz363/fire-hd10-2021-root/blob/master/README.md
+  (§3 — Stage the exploit assets).
+
+`prebuilt/` is deliberately untouched and still targets PS7331.4460N: the
+default install path (`./runme.sh`) remains PS7331-only. Running the shipped
+default against a PS7329 unit will silently not flip SELinux (wrong mapped
+`.bss` slot — see the verification below). The rebuilt payload is reached by
+rebuilding per the procedure above.
+
 ## Chain verification, per link
 
 ### P1 — CVE-2024-31317 (zygote injection)
