@@ -19,7 +19,7 @@ Everything below was executed against the live device and logged.
 > `pstore-audit.txt` (the kernel-fault scan), `getenforce-transitions.txt`
 > (Enforcing / Permissive readings), and `deployed-so-sha256.txt` (the staged JNI
 > `.so` sha256 from the device side). This file is the prose summary, not the
-> source of truth — the source of truth is `evidence/`.
+> source of truth — the source of truth is `PS7329-3842N-evidence/`.
 
 ## Device identity (pre-exploit)
 
@@ -147,7 +147,7 @@ rebuilding per the procedure above.
   only certifies "no kernel panic in the most recent ring"; it cannot certify
   "no panic ever". If you need a fuller audit, drain pstore immediately after
   each attempt and snapshot it (`cat /sys/fs/pstore/console-ramoops >
-  evidence/pstore-<timestamp>.txt`).
+  PS7329-3842N-evidence/pstore-<timestamp>.txt`).
 - Every wrong-address write returned success and left no trace — consistent with the
   write landing in a mapped-but-irrelevant `.bss` slot. (Do not interpret silence as
   safety in general: validate addresses by disassembly, not by probing.)
