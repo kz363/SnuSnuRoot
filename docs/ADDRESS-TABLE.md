@@ -55,8 +55,11 @@ incremental OTAs and some newer formats), use `payload-dumper` against
 ```bash
 # 1. Download the OTA for your build (URL from the JSON above)
 curl -L -o ota.bin "<the url>"
+# PS7329.3842N example (verified working):
+# curl -L -o ota.bin "https://fireos-tablet-src.s3.us-west-2.amazonaws.com/154swnl8KAvSTRqCX8a0bNSecf/Fire_HD10-PS7329_user_3851_0029294005124.bin"
 
 # 2. It's a zip: extract the boot image
+file ota.bin   # AOSP-style zip shows 'Zip archive data'; payload.bin-style shows 'Android payload'
 python3 -c "import zipfile; zipfile.ZipFile('ota.bin').extract('boot.img')"
 
 # 3. The kernel is gzip'd at offset 0x800 (AOSP mkbootimg convention: one page
@@ -76,6 +79,7 @@ EOF
 
 # 4. Reconstruct an ELF with a symbol table (kallsyms text symbols are enough —
 #    only the ADDRESS of the function enforcing_setup is needed)
+apt-get install -y build-essential libc6-dev binutils
 pip install vmlinux-to-elf          # needs gcc + libc6-dev for the minilzo wheel
 vmlinux-to-elf vmlinux vmlinux.elf
 readelf -s vmlinux.elf | grep -w enforcing_setup
